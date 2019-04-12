@@ -7,10 +7,15 @@ namespace CodeKata
     {
         private object FizzBuzz(int value)
         {
-            if (value == 15)
-                return "FizzBuzz";
+            var remainderOfFive = value % 5;
+            var remainderOfThree = value % 3;
+            var isDivisibleByFive = remainderOfFive == 0;
+            var isDivisibleByThree = remainderOfThree == 0;
+            if (!isDivisibleByFive && !isDivisibleByThree)
+                return value;
 
-            return value == 3 ? "Fizz" : "Buzz";
+            return $"{(isDivisibleByThree ? "Fizz" : "")}{(isDivisibleByFive ? "Buzz" : "")}"
+                .Trim();
         }
 
         [Fact]
@@ -46,6 +51,15 @@ namespace CodeKata
             Assert.Equal("FizzBuzz", result);
         }
 
+        [Fact]
+        public void Given1Then1()
+        {
+            // Arrange
+            // Act
+            var result = FizzBuzz(1);
 
+            // Assert
+            Assert.Equal(1, result);
+        }
     }
 }
