@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace CodeKata
@@ -60,6 +59,51 @@ namespace CodeKata
 
             // Assert
             Assert.Equal(1, result);
+        }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(15)]
+        [InlineData(30)]
+        [InlineData(45)]
+        public void GivenDivisibleBy3And5ThenFizzBuzz(int number)
+        {
+            // Arrange
+            // Act
+            var result = FizzBuzz(number);
+
+            // Assert
+            Assert.Equal("FizzBuzz", result);
+        }
+
+        [Theory]
+        [InlineData(3)]
+        [InlineData(6)]
+        [InlineData(9)]
+        [InlineData(12)]
+        public void GivenDivisibleBy3ThenFizz(int number)
+        {
+            // Arrange
+            // Act
+            var result = FizzBuzz(number);
+
+            // Assert
+            Assert.Equal("Fizz", result);
+        }
+
+        [Theory]
+        [InlineData(5)]
+        [InlineData(10)]
+        [InlineData(25)]
+        [InlineData(20)]
+        public void GivenDivisibleBy5ThenBuzz(int number)
+        {
+            // Arrange
+            // Act
+            var result = FizzBuzz(number);
+
+            // Assert
+            Assert.Equal("Buzz", result);
         }
     }
 }
